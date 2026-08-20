@@ -34,7 +34,7 @@ st.markdown(
     .main .block-container {
         padding-top: 3rem !important;
         padding-bottom: 4rem !important;
-        max-width: 1000px !important;
+        max-width: 1200px !important;
     }
 
     /* Top Banner */
@@ -106,6 +106,11 @@ st.markdown(
         color: #16a34a;
     }
 
+    .icon-glass {
+        background-color: #faf5ff;
+        color: #9333ea;
+    }
+
     .module-title {
         font-size: 19px;
         font-weight: 700;
@@ -146,6 +151,7 @@ st.markdown(
 # ============================================================
 REQUIREMENT_ENGINE_URL = "https://your-requirement-engine.streamlit.app"
 WINDOW_DETAILS_URL = "https://your-window-details.streamlit.app"
+GLASS_PI_VERIFY_URL = "https://glass-pi-verification.streamlit.app/"
 
 # ============================================================
 # HEADER
@@ -163,9 +169,9 @@ st.markdown(
 )
 
 # ============================================================
-# MODULE CARDS WITH VECTOR ICONS & LINKS
+# 3-COLUMN LAYOUT WITH VECTOR ICONS & LINKS
 # ============================================================
-col1, col2 = st.columns(2, gap="medium")
+col1, col2, col3 = st.columns(3, gap="medium")
 
 with col1:
     st.markdown(
@@ -207,6 +213,30 @@ with col2:
             <div>
                 <hr style="border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 16px;">
                 <a href="{WINDOW_DETAILS_URL}" target="_blank" class="web-link">
+                    Launch Module <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col3:
+    st.markdown(
+        f"""
+        <div class="module-card">
+            <div>
+                <div class="icon-box icon-glass">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="module-title">Glass & PI Verification</div>
+                <div class="module-desc">
+                    Glass Proforma Invoice verification, quantity cross-checks, rate validation system, and automated mismatch detection.
+                </div>
+            </div>
+            <div>
+                <hr style="border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 16px;">
+                <a href="{GLASS_PI_VERIFY_URL}" target="_blank" class="web-link">
                     Launch Module <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
             </div>
