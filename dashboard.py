@@ -11,19 +11,20 @@ st.set_page_config(
 )
 
 # ============================================================
-# ENTERPRISE UI STYLING & ICONS (FontAwesome CDN Included)
+# ENTERPRISE UI STYLING & ICONS (CLEANED & FIXED)
 # ============================================================
 st.markdown(
     """
     <!-- FontAwesome Vector Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
     
     <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
     html, body, [class*="css"] {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        background-color: #f8fafc;
-        color: #0f172a;
+        font-family: 'Plus Jakarta Sans', sans-serif !important;
+        background-color: #f8fafc !important;
+        color: #0f172a !important;
     }
 
     #MainMenu, footer, header {
@@ -31,9 +32,9 @@ st.markdown(
     }
 
     .main .block-container {
-        padding-top: 3rem;
-        padding-bottom: 4rem;
-        max-width: 1000px;
+        padding-top: 3rem !important;
+        padding-bottom: 4rem !important;
+        max-width: 1000px !important;
     }
 
     /* Top Banner */
