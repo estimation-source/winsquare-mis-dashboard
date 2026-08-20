@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # ============================================================
-# COMPACT ENTERPRISE UI STYLING
+# COMPACT ENTERPRISE UI STYLING (FIXED CSS & FONTS)
 # ============================================================
 st.markdown(
     """
@@ -30,8 +30,8 @@ st.markdown(
     }
 
     .main .block-container {
-        padding-top: 1.5rem;
-        padding-bottom: 2rem;
+        padding-top: 1.5rem !important;
+        padding-bottom: 2rem !important;
         max-width: 1200px;
     }
 
@@ -144,7 +144,6 @@ st.markdown(
 # ============================================================
 # MODULE LIVE LINKS SETUP
 # ============================================================
-# 🔴 तुमच्या Live URLs येथे बदला:
 REQUIREMENT_ENGINE_URL = "https://your-requirement-engine.streamlit.app"
 WINDOW_DETAILS_URL = "https://your-window-details.streamlit.app"
 GLASS_PI_VERIFY_URL = "https://glass-pi-verification.streamlit.app/"
@@ -230,7 +229,7 @@ with col3:
                 </div>
                 <div class="module-title">GLASS PI VERIFICATION</div>
                 <div class="module-desc">
-                    Add description for your third module here. Short summary of features.
+                    Glass Proforma Invoice verification, quantity cross-checks, and rate validation system.
                 </div>
             </div>
             <div>
