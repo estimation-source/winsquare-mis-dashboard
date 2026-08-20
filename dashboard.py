@@ -133,7 +133,7 @@ st.markdown(
 # ============================================================
 
 # 🔴 टीप: खालील URLs मध्ये तुमच्या अचूक Live Links टाका
-REQUIREMENT_ENGINE_URL = "https://your-requirement-engine.streamlit.app"
+REQUIREMENT_ENGINE_URL = "https://requirement-sheet-engine.streamlit.app/"
 WINDOW_DETAILS_URL = "https://your-window-details.streamlit.app"
 
 # Module 1: Requirement Sheet Engine
@@ -144,7 +144,7 @@ st.markdown(
         <div class="module-desc">
             Multi-sheet BOQ Excel processing, non-frosted glass extraction, SQFT auto-calculation & official requirement sheet generation.
         </div>
-        <a href="{https://requirement-sheet-engine.streamlit.app/}" target="_blank" class="link-btn">
+        <a href="{REQUIREMENT_ENGINE_URL}" target="_blank" class="link-btn">
             Open Module 🔗
         </a>
     </div>
