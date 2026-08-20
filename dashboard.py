@@ -144,7 +144,7 @@ st.markdown(
         <div class="module-desc">
             Multi-sheet BOQ Excel processing, non-frosted glass extraction, SQFT auto-calculation & official requirement sheet generation.
         </div>
-        <a href="{REQUIREMENT_ENGINE_URL}" target="_blank" class="link-btn">
+        <a href="{https://requirement-sheet-engine.streamlit.app/}" target="_blank" class="link-btn">
             Open Module 🔗
         </a>
     </div>
