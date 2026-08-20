@@ -1,40 +1,169 @@
 import streamlit as st
 
-st.set_page_config(page_title="Winsquare MIS Dashboard", layout="wide", page_icon="🪟")
+# ============================================================
+# Page Configuration
+# ============================================================
+st.set_page_config(
+    page_title="Winsquare MIS Dashboard",
+    page_icon="🪟",
+    layout="centered",
+    initial_sidebar_state="collapsed"
+)
 
-# Custom Title Styling
-st.markdown("<h1 style='text-align: center; color: #1e293b;'>Winsquare MIS DASHBOARD</h1>", unsafe_allow_html=True)
-st.markdown("---")
-
-# Module Navigation Selection
-st.sidebar.title("📌 Modules Navigation")
-page = st.sidebar.radio("मॉड्युल निवडा:", ["🏠 Home Dashboard", "⚡ Requirement Sheet Engine", "🪟 Window Details"])
-
-if page == "🏠 Home Dashboard":
-    st.subheader("Welcome to Winsquare MIS System")
-    st.write("खालीलपैकी तुम्हाला हव्या असलेल्या मॉड्युलवर क्लिक करा:")
+# ============================================================
+# Custom CSS for Modern Card UI
+# ============================================================
+st.markdown(
+    """
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
     
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        st.info("### ⚡ Requirement Sheet Engine")
-        st.write("BOQ फाईल्स मर्ज करा आणि Glass Requirement Sheet तयार करा.")
-        # युझरने बटण दाबल्यावर पेज बदलेल
-        if st.button("Requirement Sheet वर जा"):
-            st.session_state["page"] = "Requirement Sheet Engine"
-            
-    with col2:
-        st.success("### 🪟 Window Details")
-        st.write("विंडो कोडनुसार स्पेसिफिकेशन्स आणि इतर डिटेल्स पहा.")
-        if st.button("Window Details वर जा"):
-            st.session_state["page"] = "Window Details"
+    html, body, [class*="css"] {
+        font-family: 'Inter', sans-serif;
+        background-color: #f8fafc;
+    }
 
-elif page == "⚡ Requirement Sheet Engine":
-    # इथे तुमचा Requirement Sheet Engine चा संपूर्ण कोड येईल
-    st.title("Requirement Sheet Engine")
-    st.write("तुमचा असलेला requirement engine कोड इथे रन करा.")
+    /* Main Container Padding */
+    .main .block-container {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        max-width: 800px;
+    }
 
-elif page == "🪟 Window Details":
-    # इथे विंडो डिटेल्सचा कोड येईल
-    st.title("Window Details Module")
-    st.write("विंडो डिटेल्स मॉड्युलची माहिती इथे दाखवा.")
+    /* Dashboard Title Card */
+    .dashboard-header {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 16px;
+        padding: 30px;
+        text-align: center;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+    }
+
+    .dashboard-title {
+        font-size: 28px;
+        font-weight: 800;
+        color: #0f172a;
+        margin: 0;
+        letter-spacing: -0.5px;
+    }
+
+    .dashboard-subtitle {
+        font-size: 14px;
+        color: #64748b;
+        margin-top: 6px;
+        font-weight: 500;
+    }
+
+    /* Module Links Cards */
+    .module-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 24px;
+        margin-bottom: 20px;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .module-card:hover {
+        border-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+    }
+
+    .module-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .module-desc {
+        font-size: 13px;
+        color: #64748b;
+        margin-bottom: 16px;
+        line-height: 1.5;
+    }
+
+    /* Action Link Button */
+    .link-btn {
+        display: inline-block;
+        background-color: #2563eb;
+        color: #ffffff !important;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none !important;
+        transition: background-color 0.2s ease;
+    }
+
+    .link-btn:hover {
+        background-color: #1d4ed8;
+    }
+
+    #MainMenu, footer {
+        visibility: hidden;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ============================================================
+# DASHBOARD HEADER
+# ============================================================
+st.markdown(
+    """
+    <div class="dashboard-header">
+        <div class="dashboard-title">Winsquare MIS DASHBOARD</div>
+        <div class="dashboard-subtitle">Central Gateway for Processing & Project Management Modules</div>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# ============================================================
+# MODULE LINKS SECTION
+# ============================================================
+
+# 🔴 टीप: खालील URLs मध्ये तुमच्या अचूक Live Links टाका
+REQUIREMENT_ENGINE_URL = "https://your-requirement-engine.streamlit.app"
+WINDOW_DETAILS_URL = "https://your-window-details.streamlit.app"
+
+# Module 1: Requirement Sheet Engine
+st.markdown(
+    f"""
+    <div class="module-card">
+        <div class="module-title">⚡ Requirement Sheet Engine</div>
+        <div class="module-desc">
+            Multi-sheet BOQ Excel processing, non-frosted glass extraction, SQFT auto-calculation & official requirement sheet generation.
+        </div>
+        <a href="{REQUIREMENT_ENGINE_URL}" target="_blank" class="link-btn">
+            Open Module 🔗
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+# Module 2: Window Details
+st.markdown(
+    f"""
+    <div class="module-card">
+        <div class="module-title">🪟 Window Details</div>
+        <div class="module-desc">
+            Window codes, profile specs, hardware details, and individual window level breakdown view.
+        </div>
+        <a href="{WINDOW_DETAILS_URL}" target="_blank" class="link-btn">
+            Open Module 🔗
+        </a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
