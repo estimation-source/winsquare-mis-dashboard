@@ -1,3 +1,5 @@
+import base64
+import os
 import streamlit as st
 
 # ============================================================
@@ -7,8 +9,20 @@ st.set_page_config(
     page_title="Winsquare MIS Dashboard",
     page_icon="🏢",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="collapsed",
 )
+
+# ============================================================
+# HELPER: LOAD LOGO AS BASE64 FOR HTML EMBEDDING
+# ============================================================
+logo_html = ""
+logo_path = "logo.png"
+
+if os.path.exists(logo_path):
+    with open(logo_path, "rb") as image_file:
+        encoded_string = base64.b64encode(image_file.read()).decode()
+    logo_html = f'<img src="data:image/png;base64,{encoded_string}" class="hero-logo" alt="Winsquare Logo">'
+
 
 # ============================================================
 # ENTERPRISE UI STYLING & ICONS (CLEANED & FIXED)
@@ -37,14 +51,17 @@ st.markdown(
         max-width: 1200px !important;
     }
 
-    /* Top Banner */
+    /* Top Hero Banner with Logo Integration */
     .hero-banner {
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
         border-radius: 16px;
-        padding: 36px 40px;
+        padding: 32px 40px;
         color: #ffffff;
         box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
         margin-bottom: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .hero-title {
@@ -62,6 +79,17 @@ st.markdown(
         color: #94a3b8;
         margin-top: 6px;
         font-weight: 500;
+    }
+
+    .hero-logo {
+        height: 60px;
+        width: auto;
+        max-width: 180px;
+        object-fit: contain;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 6px 12px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 
     /* Executive Module Card */
@@ -154,15 +182,18 @@ WINDOW_DETAILS_URL = "https://your-window-details.streamlit.app"
 GLASS_PI_VERIFICATION_URL = "https://glass-pi-verification.streamlit.app/"
 
 # ============================================================
-# HEADER
+# HEADER WITH INTEGRATED LOGO
 # ============================================================
 st.markdown(
-    """
+    f"""
     <div class="hero-banner">
-        <div class="hero-title">
-            <i class="fa-solid fa-chart-line"></i> Winsquare MIS DASHBOARD
+        <div>
+            <div class="hero-title">
+                <i class="fa-solid fa-chart-line"></i> Winsquare MIS DASHBOARD
+            </div>
+            <div class="hero-subtitle">Central Gateway for Processing, BOQ Extraction & Project Management Modules</div>
         </div>
-        <div class="hero-subtitle">Central Gateway for Processing, BOQ Extraction & Project Management Modules</div>
+        {logo_html}
     </div>
     """,
     unsafe_allow_html=True,
