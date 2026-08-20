@@ -178,7 +178,7 @@ st.markdown(
 # MODULE LIVE LINKS SETUP
 # ============================================================
 REQUIREMENT_ENGINE_URL = "https://requirement-sheet-engine.streamlit.app/"
-WINDOW_DETAILS_URL = "https://your-window-details.streamlit.app"
+WINDOW_DETAILS_URL = "https://window-details.streamlit.app/"
 GLASS_PI_VERIFICATION_URL = "https://glass-pi-verification.streamlit.app/"
 
 # ============================================================
