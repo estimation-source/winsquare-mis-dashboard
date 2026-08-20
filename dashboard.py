@@ -5,18 +5,19 @@ import streamlit as st
 # ============================================================
 st.set_page_config(
     page_title="Winsquare MIS Dashboard",
-    page_icon = "🪟",
+    page_icon="🏢",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
 
 # ============================================================
-# MODERN ENTERPRISE UI STYLING (CSS)
+# COMPACT ENTERPRISE UI STYLING
 # ============================================================
 st.markdown(
     """
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
     
     html, body, [class*="css"] {
         font-family: 'Plus Jakarta Sans', sans-serif;
@@ -24,132 +25,116 @@ st.markdown(
         color: #0f172a;
     }
 
-    /* Hide Streamlit Header Elements */
     #MainMenu, footer, header {
         visibility: hidden;
     }
 
     .main .block-container {
-        padding-top: 2.5rem;
-        padding-bottom: 4rem;
-        max-width: 1100px;
+        padding-top: 1.5rem;
+        padding-bottom: 2rem;
+        max-width: 1200px;
     }
 
-    /* Top Banner Header */
+    /* Compact Header Banner */
     .hero-banner {
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-        border-radius: 20px;
-        padding: 40px 45px;
+        border-radius: 10px;
+        padding: 18px 24px;
         color: #ffffff;
-        box-shadow: 0 20px 25px -5px rgba(15, 23, 42, 0.15), 0 8px 10px -6px rgba(15, 23, 42, 0.1);
-        margin-bottom: 35px;
-        position: relative;
-        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+        margin-bottom: 20px;
     }
 
     .hero-title {
-        font-size: 32px;
-        font-weight: 800;
-        letter-spacing: -0.8px;
-        margin: 0;
-        color: #ffffff;
-    }
-
-    .hero-subtitle {
-        font-size: 15px;
-        color: #94a3b8;
-        margin-top: 8px;
-        font-weight: 500;
-    }
-
-    /* Dashboard Grid System */
-    .grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-        gap: 24px;
-    }
-
-    /* Executive Module Card */
-    .module-card {
-        background: #ffffff;
-        border: 1px solid #e2e8f0;
-        border-radius: 16px;
-        padding: 28px;
-        position: relative;
-        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.02);
-    }
-
-    .module-card:hover {
-        border-color: #3b82f6;
-        transform: translateY(-4px);
-        box-shadow: 0 12px 20px -4px rgba(59, 130, 246, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-
-    .card-top-row {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 16px;
-    }
-
-    .module-badge {
-        font-size: 11px;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.6px;
-        padding: 4px 10px;
-        border-radius: 20px;
-        background-color: #eff6ff;
-        color: #2563eb;
-        border: 1px solid #bfdbfe;
-    }
-
-    .module-badge.green {
-        background-color: #f0fdf4;
-        color: #16a34a;
-        border: 1px solid #bbf7d0;
-    }
-
-    .module-title {
         font-size: 20px;
         font-weight: 700;
-        color: #0f172a;
-        margin-bottom: 8px;
+        letter-spacing: -0.3px;
+        color: #ffffff;
         display: flex;
         align-items: center;
         gap: 10px;
+        margin: 0;
+    }
+
+    .hero-subtitle {
+        font-size: 12px;
+        color: #94a3b8;
+        margin-top: 2px;
+        font-weight: 500;
+    }
+
+    /* Compact Module Cards */
+    .module-card {
+        background: #ffffff;
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+        padding: 16px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transition: all 0.2s ease;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    }
+
+    .module-card:hover {
+        border-color: #2563eb;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px -2px rgba(37, 99, 235, 0.1);
+    }
+
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .badge {
+        font-size: 9.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        padding: 2px 7px;
+        border-radius: 4px;
+    }
+
+    .badge-blue { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
+    .badge-green { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
+    .badge-purple { background: #faf5ff; color: #9333ea; border: 1px solid #e9d5ff; }
+
+    .module-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 6px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .module-desc {
-        font-size: 14px;
+        font-size: 12px;
         color: #64748b;
-        line-height: 1.6;
-        margin-bottom: 24px;
+        line-height: 1.45;
+        margin-bottom: 14px;
     }
 
-    /* Website-style Hyperlink */
+    /* Clean Web Link */
     .web-link {
         display: inline-flex;
         align-items: center;
         gap: 6px;
-        font-size: 14px;
-        font-weight: 700;
+        font-size: 12.5px;
+        font-weight: 600;
         color: #2563eb;
         text-decoration: none !important;
-        transition: color 0.2s ease, gap 0.2s ease;
+        transition: all 0.2s ease;
     }
 
     .web-link:hover {
         color: #1d4ed8;
-        gap: 10px;
-    }
-
-    .web-link-icon {
-        font-size: 16px;
+        gap: 8px;
     }
     </style>
     """,
@@ -159,17 +144,20 @@ st.markdown(
 # ============================================================
 # MODULE LIVE LINKS SETUP
 # ============================================================
-# 🔴 येथे तुमच्या मूळ Streamlit Cloud / Web App च्या URLs टाका:
-REQUIREMENT_ENGINE_URL = "https://requirement-sheet-engine.streamlit.app/"
+# 🔴 तुमच्या Live URLs येथे बदला:
+REQUIREMENT_ENGINE_URL = "https://your-requirement-engine.streamlit.app"
 WINDOW_DETAILS_URL = "https://your-window-details.streamlit.app"
+GLASS_PI_VERIFY_URL = "https://glass-pi-verification.streamlit.app/"
 
 # ============================================================
-# DASHBOARD HERO BANNER
+# HEADER
 # ============================================================
 st.markdown(
     """
     <div class="hero-banner">
-        <div class="hero-title">Winsquare MIS DASHBOARD</div>
+        <div class="hero-title">
+            <i class="fa-solid fa-chart-line" style="font-size: 18px; color: #38bdf8;"></i> Winsquare MIS DASHBOARD
+        </div>
         <div class="hero-subtitle">Central Gateway for Processing, BOQ Extraction & Project Management Modules</div>
     </div>
     """,
@@ -177,27 +165,28 @@ st.markdown(
 )
 
 # ============================================================
-# WEBSITE CARDS & HYPERLINKS VIEW
+# 3-COLUMN COMPACT LAYOUT
 # ============================================================
-col1, col2 = st.columns(2, gap="large")
+col1, col2, col3 = st.columns(3, gap="small")
 
 with col1:
     st.markdown(
         f"""
         <div class="module-card">
             <div>
-                <div class="card-top-row">
-                    <span class="module-badge">BOQ Processing</span>
+                <div class="card-header">
+                    <span class="badge badge-blue">BOQ Processing</span>
+                    <i class="fa-solid fa-file-invoice-dollar" style="color:#2563eb; font-size: 14px;"></i>
                 </div>
-                <div class="module-title">⚡ Requirement Sheet Engine</div>
+                <div class="module-title">Requirement Sheet Engine</div>
                 <div class="module-desc">
-                    Multi-sheet BOQ Excel processing, automatic non-frosted glass extraction, SQFT calculation, and official requirement sheet generation.
+                    Multi-sheet BOQ Excel processing, non-frosted glass extraction & SQFT auto-calculation.
                 </div>
             </div>
             <div>
-                <hr style="border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 16px;">
+                <hr style="border:0; border-top: 1px solid #f1f5f9; margin: 8px 0 10px 0;">
                 <a href="{REQUIREMENT_ENGINE_URL}" target="_blank" class="web-link">
-                    Launch Module <span class="web-link-icon">↗</span>
+                    Launch Module <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i>
                 </a>
             </div>
         </div>
@@ -210,18 +199,44 @@ with col2:
         f"""
         <div class="module-card">
             <div>
-                <div class="card-top-row">
-                    <span class="module-badge green">Specifications</span>
+                <div class="card-header">
+                    <span class="badge badge-green">Specifications</span>
+                    <i class="fa-solid fa-border-all" style="color:#16a34a; font-size: 14px;"></i>
                 </div>
-                <div class="module-title">🪟 Window Details</div>
+                <div class="module-title">Window Details</div>
                 <div class="module-desc">
-                    Comprehensive window codes directory, profile specifications, hardware details, and component level breakdowns.
+                    Window codes directory, profile specs, hardware details, and component breakdowns.
                 </div>
             </div>
             <div>
-                <hr style="border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 16px;">
+                <hr style="border:0; border-top: 1px solid #f1f5f9; margin: 8px 0 10px 0;">
                 <a href="{WINDOW_DETAILS_URL}" target="_blank" class="web-link">
-                    Launch Module <span class="web-link-icon">↗</span>
+                    Launch Module <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i>
+                </a>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+
+with col3:
+    st.markdown(
+        f"""
+        <div class="module-card">
+            <div>
+                <div class="card-header">
+                    <span class="badge badge-purple">Analytics / MIS</span>
+                    <i class="fa-solid fa-chart-pie" style="color:#9333ea; font-size: 14px;"></i>
+                </div>
+                <div class="module-title">GLASS PI VERIFICATION</div>
+                <div class="module-desc">
+                    Add description for your third module here. Short summary of features.
+                </div>
+            </div>
+            <div>
+                <hr style="border:0; border-top: 1px solid #f1f5f9; margin: 8px 0 10px 0;">
+                <a href="{GLASS_PI_VERIFY_URL}" target="_blank" class="web-link">
+                    Launch Module <i class="fa-solid fa-arrow-right" style="font-size: 11px;"></i>
                 </a>
             </div>
         </div>
