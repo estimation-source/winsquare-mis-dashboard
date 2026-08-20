@@ -11,7 +11,7 @@ st.set_page_config(
 )
 
 # ============================================================
-# COMPACT ENTERPRISE UI STYLING (FIXED CSS & FONTS)
+# COMPACT ENTERPRISE UI STYLING (FIXED NO-BREAK SPACE ISSUE)
 # ============================================================
 st.markdown(
     """
