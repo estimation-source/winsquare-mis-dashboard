@@ -236,7 +236,7 @@ with col3:
             </div>
             <div>
                 <hr style="border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 16px;">
-                <a href="{GLASS_PI_VERIFY_URL}" target="_blank" class="web-link">
+                <a href="{GLASS_PI_VERIFICATION_URL}" target="_blank" class="web-link">
                     Launch Module <i class="fa-solid fa-arrow-right-long"></i>
                 </a>
             </div>
