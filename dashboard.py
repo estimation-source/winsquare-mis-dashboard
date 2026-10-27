@@ -203,7 +203,7 @@ st.markdown(
 # ============================================================
 # 3-COLUMN LAYOUT WITH VECTOR ICONS & LINKS
 # ============================================================
-col1, col2, col3 = st.columns(3, gap="medium")
+col1, col2, col3, col4 = st.columns(4, gap="medium")
 
 with col1:
     st.markdown(
