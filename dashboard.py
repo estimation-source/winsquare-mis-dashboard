@@ -180,6 +180,7 @@ st.markdown(
 REQUIREMENT_ENGINE_URL = "https://requirement-sheet-engine.streamlit.app/"
 WINDOW_DETAILS_URL = "https://window-details.streamlit.app/"
 GLASS_PI_VERIFICATION_URL = "https://glass-pi-verification.streamlit.app/"
+OC_PREPARATION_URL = "https://oc-preparation.streamlit.app/"
 
 # ============================================================
 # HEADER WITH INTEGRATED LOGO
@@ -275,3 +276,31 @@ with col3:
         """,
         unsafe_allow_html=True,
     )
+
+with col4:
+    st.markdown(
+        f"""
+        <div class="module-card">
+            <div>
+                <div class="icon-box icon-glass">
+                    <i class="fa-solid fa-chart-pie"></i>
+                </div>
+                <div class="module-title">OC_PREPARATION</div>
+                <div class="module-desc">
+                    PREPARING OC BY USING QUATATION FILE, IT IS AUTOMATION PERFORMER
+                </div>
+            </div>
+            <div>
+                <hr style="border: 0; border-top: 1px solid #f1f5f9; margin-bottom: 16px;">
+                <a href="{OC_PREPARATION_URL}" target="_blank" class="web-link">
+                    Launch Module <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True,
+    )
+    
+
+
+    
