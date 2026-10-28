@@ -25,7 +25,7 @@ if os.path.exists(logo_path):
 
 
 # ============================================================
-# ENTERPRISE UI STYLING & ICONS (CLEANED & FIXED)
+# ENTERPRISE UI STYLING & ICONS
 # ============================================================
 st.markdown(
     """
@@ -48,7 +48,7 @@ st.markdown(
     .main .block-container {
         padding-top: 3rem !important;
         padding-bottom: 4rem !important;
-        max-width: 1200px !important;
+        max-width: 1280px !important;
     }
 
     /* Top Hero Banner with Logo Integration */
@@ -97,7 +97,7 @@ st.markdown(
         background: #ffffff;
         border: 1px solid #e2e8f0;
         border-radius: 14px;
-        padding: 26px;
+        padding: 24px;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -139,8 +139,14 @@ st.markdown(
         color: #9333ea;
     }
 
+    /* OC Preparation sathi naveen styling */
+    .icon-oc {
+        background-color: #fff7ed;
+        color: #ea580c;
+    }
+
     .module-title {
-        font-size: 19px;
+        font-size: 18px;
         font-weight: 700;
         color: #0f172a;
         margin-bottom: 8px;
@@ -153,7 +159,7 @@ st.markdown(
         margin-bottom: 20px;
     }
 
-    /* Professional Website Link */
+    /* Professional Link */
     .web-link {
         display: inline-flex;
         align-items: center;
@@ -201,7 +207,7 @@ st.markdown(
 )
 
 # ============================================================
-# 3-COLUMN LAYOUT WITH VECTOR ICONS & LINKS
+# 4-COLUMN LAYOUT WITH VECTOR ICONS & LINKS
 # ============================================================
 col1, col2, col3, col4 = st.columns(4, gap="medium")
 
@@ -282,12 +288,13 @@ with col4:
         f"""
         <div class="module-card">
             <div>
-                <div class="icon-box icon-glass">
-                    <i class="fa-solid fa-chart-pie"></i>
+                <div class="icon-box icon-oc">
+                    <!-- Navin Icon (Document Signature/Automation Sathi) -->
+                    <i class="fa-solid fa-file-signature"></i>
                 </div>
-                <div class="module-title">OC_PREPARATION</div>
+                <div class="module-title">OC Preparation</div>
                 <div class="module-desc">
-                    PREPARING OC BY USING QUATATION FILE, IT IS AUTOMATION PERFORMER
+                    PREPARING OC BY USING QUOTATION FILE, IT IS AUTOMATION PERFORMER
                 </div>
             </div>
             <div>
@@ -300,7 +307,3 @@ with col4:
         """,
         unsafe_allow_html=True,
     )
-    
-
-
-    
